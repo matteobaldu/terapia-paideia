@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paideia – Psicoterapia Online TCC</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+          },
+          colors: {
+            'p-blue':   '#006497',
+            'p-mid':    '#4A85D1',
+            'p-orange': '#FC6745',
+            'p-green':  '#ABD4BF',
+            'p-pink':   '#FFD9CF',
+            'p-cream':  '#F1EBDA',
+          },
+          letterSpacing: { custom: '0.01em' },
+        },
+      },
+    }
+  </script>
+  <style>
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+      font-size: 18px;
+      font-weight: 100;
+      letter-spacing: 0.01em;
+      line-height: 1.4;
+      color: rgba(48, 38, 37, 1);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    .phone-mockup {
+      border-radius: 2.5rem;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.22);
+    }
+    .card-hover { transition: transform 0.3s ease; }
+    .card-hover:hover { transform: translateY(-4px); }
+    input::placeholder, textarea::placeholder { color: #9db8cc; }
+    select option { color: #302625; }
+    /* Paideia wordmark: bold serif */
+    .logo-wordmark {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+      color: #006497;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+  <!-- ─── NAV ─────────────────────────────────────────────────────────── -->
+  <nav class="w-full bg-white sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+      <!-- Logo -->
+      <div class="flex items-center">
+        <img src="logo.png" alt="Paideia" class="h-12 w-auto" />
+      </div>
+
+      <!-- Links -->
+      <div class="hidden md:flex items-center gap-8 text-sm font-light text-gray-500">
+        <a href="#servicios" class="hover:text-p-blue transition-colors">Servicios</a>
+        <a href="#nosotros" class="hover:text-p-blue transition-colors">Nosotros</a>
+        <a href="#enfoque" class="hover:text-p-blue transition-colors">Enfoque TCC</a>
+        <a href="#contacto" class="hover:text-p-blue transition-colors">Contacto</a>
+      </div>
+
+      <!-- CTA -->
+      <a href="#contacto" class="bg-p-orange text-white text-sm font-normal px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity">
+        Reservar sesión
+      </a>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─────────────────────────────────────────────────────────── -->
+  <section class="pt-16 pb-0 overflow-hidden" style="background-color:#006497;">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <!-- label -->
+      <div class="flex items-center gap-2 mb-6">
+        <svg width="18" height="20" viewBox="0 0 30 34" fill="none">
+          <path d="M15 1.5 C20.5 1.5 26 6.5 26.5 13 C27 19 24 26 20 29.5 C17.5 31.8 12.5 31.8 10 29.5 C6 26 3 19 3.5 13 C4 6.5 9.5 1.5 15 1.5 Z" stroke="rgba(255,255,255,0.6)" stroke-width="1.6" fill="none"/>
+          <path d="M10 13 C11.5 11 13 12.5 15 11.5 C17 10.5 18.5 12 20 13" stroke="rgba(255,255,255,0.6)" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+          <path d="M15 15 C13.5 16.5 13.5 19 15 20 C16.5 19 16.5 16.5 15 15 Z" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+        </svg>
+        <span class="text-xs font-medium text-white/60 uppercase tracking-widest">Terapia Paideia</span>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 items-end">
+        <!-- Text -->
+        <div class="pb-16">
+          <h1 class="text-5xl md:text-6xl font-light text-white leading-tight mb-6" style="font-family:'Playfair Display',Georgia,serif;">
+            Salud mental<br />
+            <span class="font-bold">para todos</span>
+          </h1>
+          <p class="text-white/60 font-light text-base mb-8 max-w-md leading-relaxed">
+            Con acompañamiento profesional, accesible y personalizado. En Paideia te ayudamos a mejorar tu bienestar emocional desde donde estés. Psicoterapia online con enfoque TCC.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="#contacto" class="bg-p-orange text-white font-normal text-sm px-6 py-3 rounded-full hover:opacity-90 transition-opacity">
+              Comenzar ahora
+            </a>
+            <a href="#servicios" class="border border-white/40 text-white font-normal text-sm px-6 py-3 rounded-full hover:bg-white/10 transition-colors">
+              Conocer más
+            </a>
+          </div>
+        </div>
+
+        <!-- Phone mockups -->
+        <div class="relative flex justify-end items-end gap-4 h-[420px]">
+          <!-- Back phone -->
+          <div class="self-end translate-y-4">
+            <div class="w-[175px] h-[350px] phone-mockup overflow-hidden relative" style="background:#003d5c;">
+              <div class="absolute top-4 left-0 right-0 flex justify-center">
+                <div class="w-16 h-1.5 bg-white/20 rounded-full"></div>
+              </div>
+              <div class="mt-10 px-4 pt-4">
+                <p class="text-white/50 text-xs mb-2">Bienvenida, María</p>
+                <p class="text-white text-sm font-medium mb-4">Tu próxima sesión</p>
+                <div class="bg-white/15 rounded-xl p-3 mb-3">
+                  <p class="text-white text-xs font-medium">Terapia Individual</p>
+                  <p class="text-white/60 text-xs mt-1">Hoy · 18:00 hs</p>
+                  <div class="mt-2 flex items-center gap-1.5">
+                    <div class="w-5 h-5 rounded-full flex items-center justify-center text-[8px]" style="background:#FC6745;">SG</div>
+                    <p class="text-white/70 text-[10px]">Lic. Sofía García</p>
+                  </div>
+                </div>
+                <div class="bg-white/10 rounded-xl p-3">
+                  <p class="text-white/50 text-xs">Recursos · TCC</p>
+                  <p class="text-white text-xs font-medium mt-1">Técnicas de relajación</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Front phone -->
+          <div class="self-end -ml-8">
+            <div class="w-[195px] h-[395px] bg-white phone-mockup overflow-hidden border border-gray-200 relative">
+              <div class="absolute top-4 left-0 right-0 flex justify-center">
+                <div class="w-16 h-1.5 bg-gray-200 rounded-full"></div>
+              </div>
+              <div class="mt-10 px-4 pt-4">
+                <p class="text-gray-800 text-sm font-medium mb-3">Explorar</p>
+                <div class="bg-gray-100 rounded-xl px-3 py-2 mb-3 flex items-center gap-2">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="#9ca3af" stroke-width="2"/><path d="m21 21-4.35-4.35" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"/></svg>
+                  <span class="text-gray-400 text-xs">Buscar</span>
+                </div>
+                <div class="rounded-xl p-3 mb-2" style="background:#EBF3F8;">
+                  <p class="text-xs font-medium" style="color:#006497;">Ansiedad</p>
+                  <p class="text-gray-500 text-[10px] mt-0.5">Técnicas TCC para el día a día</p>
+                </div>
+                <div class="rounded-xl p-3 mb-2" style="background:#FFD9CF;">
+                  <p class="text-xs font-medium" style="color:#c0392b;">Autoestima</p>
+                  <p class="text-gray-500 text-[10px] mt-0.5">Reconectar con tu valor personal</p>
+                </div>
+                <div class="rounded-xl p-3" style="background:#E8F5EE;">
+                  <p class="text-xs font-medium" style="color:#2e7d5a;">Relaciones</p>
+                  <p class="text-gray-500 text-[10px] mt-0.5">Vínculos sanos y comunicación</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature strip (white) -->
+  <section class="bg-white py-14 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-10">
+
+        <div class="card-hover">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:#EBF3F8;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke="#006497" stroke-width="1.5"/>
+              <path d="M8 12l3 3 5-5" stroke="#006497" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="font-medium text-base mb-2" style="color:#006497;">Acceso sencillo</h3>
+          <p class="text-gray-400 text-sm font-light leading-relaxed">Sesiones desde cualquier dispositivo, sin desplazamientos. Tu terapia se adapta a tu vida.</p>
+        </div>
+
+        <div class="card-hover">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:#FFD9CF;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#FC6745" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="9" cy="7" r="4" stroke="#FC6745" stroke-width="1.5"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="#FC6745" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="font-medium text-base mb-2" style="color:#006497;">Cuidado de atención personalizada</h3>
+          <p class="text-gray-400 text-sm font-light leading-relaxed">Cada proceso terapéutico es único. Te acompañamos a diseñar el camino que mejor se ajusta a tus necesidades.</p>
+        </div>
+
+        <div class="card-hover">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:#E8F5EE;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="3" width="18" height="18" rx="3" stroke="#ABD4BF" stroke-width="1.5"/>
+              <path d="M9 9h6M9 13h4" stroke="#ABD4BF" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="font-medium text-base mb-2" style="color:#006497;">Un modelo inclusivo de salud mental</h3>
+          <p class="text-gray-400 text-sm font-light leading-relaxed">Trabajamos con Terapia Cognitivo Conductual (TCC), uno de los enfoques más respaldados por la investigación.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── BANNER STRIP ─────────────────────────────────────────────────── -->
+  <section style="background:#FC6745;" class="py-4">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <p class="text-white/90 text-sm font-light">Buscá ayuda o comenzá a cuidar tu salud mental hoy mismo</p>
+      <div class="flex items-center gap-3">
+        <button class="w-8 h-8 rounded-full border border-white/40 flex items-center justify-center hover:bg-white/10 transition">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <button class="w-8 h-8 rounded-full border border-white/40 flex items-center justify-center hover:bg-white/10 transition">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── STATS (split) ───────────────────────────────────────────────── -->
+  <section id="enfoque" class="flex flex-col md:flex-row">
+    <!-- Left: dark blue -->
+    <div class="md:w-1/2 px-10 md:px-16 py-20 flex flex-col justify-center" style="background:#006497;">
+      <h2 class="text-3xl md:text-4xl font-light text-white leading-tight mb-8" style="font-family:'Playfair Display',Georgia,serif;">
+        6 de cada 10 personas aseguran padecer al menos un problema de salud mental.
+      </h2>
+      <a href="#contacto" class="inline-block self-start text-white font-normal text-sm px-6 py-3 rounded-full hover:opacity-90 transition-opacity" style="background:#FC6745;">
+        Comenzar ahora
+      </a>
+    </div>
+    <!-- Right: cream -->
+    <div class="md:w-1/2 px-10 md:px-16 py-20 flex flex-col justify-center" style="background:#F1EBDA;">
+      <p class="text-gray-600 font-light text-sm leading-relaxed mb-4">
+        En Argentina y en toda la región, el acceso a la salud mental sigue siendo un desafío. La falta de profesionales disponibles, los costos elevados y el estigma social son barreras reales.
+      </p>
+      <p class="text-gray-600 font-light text-sm leading-relaxed">
+        En Paideia creemos que el bienestar emocional debe ser accesible para todos. Por eso ofrecemos psicoterapia online de calidad, con profesionales especializados en TCC, a precios justos.
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── SERVICES / FEATURE HIGHLIGHT ────────────────────────────────── -->
+  <section id="servicios" class="bg-white py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+
+        <!-- Phone mockup -->
+        <div class="flex justify-center">
+          <div class="relative">
+            <div class="w-[260px] h-[520px] phone-mockup overflow-hidden relative" style="background:#003d5c;">
+              <div class="absolute top-4 left-0 right-0 flex justify-center">
+                <div class="w-16 h-1.5 bg-white/20 rounded-full"></div>
+              </div>
+              <div class="mt-12 px-5">
+                <p class="text-white/50 text-xs mb-1">Panel principal</p>
+                <p class="text-white text-base font-medium mb-5">¿Cómo estás hoy?</p>
+                <div class="flex gap-2 mb-5">
+                  <div class="w-10 h-10 rounded-full bg-green-400/20 flex items-center justify-center text-lg">😌</div>
+                  <div class="w-10 h-10 rounded-full bg-yellow-400/20 flex items-center justify-center text-lg">😐</div>
+                  <div class="w-10 h-10 rounded-full bg-blue-400/20 flex items-center justify-center text-lg">😔</div>
+                  <div class="w-10 h-10 rounded-full bg-red-400/20 flex items-center justify-center text-lg">😟</div>
+                </div>
+                <div class="bg-white/10 rounded-xl p-3 mb-3">
+                  <p class="text-white/60 text-xs">Próxima sesión</p>
+                  <p class="text-white text-sm font-medium mt-1">Miércoles 19 · 17:00</p>
+                  <p class="text-white/50 text-xs mt-1">Lic. Camila Torres</p>
+                </div>
+                <div class="bg-white/10 rounded-xl p-3 mb-3">
+                  <p class="text-white/60 text-xs mb-2">Tu progreso</p>
+                  <div class="w-full bg-white/10 rounded-full h-1.5">
+                    <div class="h-1.5 rounded-full" style="width:65%;background:#FC6745;"></div>
+                  </div>
+                  <div class="flex justify-between mt-1">
+                    <p class="text-white/40 text-[10px]">Semana 4</p>
+                    <p class="text-white/40 text-[10px]">65%</p>
+                  </div>
+                </div>
+                <div class="rounded-xl p-3" style="background:rgba(171,212,191,0.25);">
+                  <p class="text-white/60 text-xs">Material recomendado</p>
+                  <p class="text-white text-xs font-medium mt-1">Técnica de respiración 4-7-8</p>
+                  <div class="mt-2 w-full text-[10px] font-medium rounded-lg px-2 py-1 text-center" style="background:#ABD4BF;color:#003d5c;">Ver ejercicio</div>
+                </div>
+              </div>
+            </div>
+            <div class="absolute -bottom-6 -left-6 w-28 h-28 rounded-full -z-10" style="background:#F1EBDA;"></div>
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div>
+          <h2 class="text-4xl font-light leading-tight mb-4" style="color:#006497;font-family:'Playfair Display',Georgia,serif;">
+            Contenido adecuado,<br /><span class="font-bold">en el momento adecuado</span>
+          </h2>
+          <p class="text-gray-500 font-light text-base leading-relaxed mb-8">
+            Nuestra plataforma te acompaña entre sesiones con recursos terapéuticos, seguimiento de tu estado emocional y acceso directo a tu psicólogo/a.
+          </p>
+
+          <div class="space-y-5">
+            <div class="flex gap-4 items-start">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center shrink-0 mt-1" style="background:#EBF3F8;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke="#006497" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="#006497" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <div>
+                <h4 class="font-medium text-base" style="color:#006497;">Terapia Individual</h4>
+                <p class="text-gray-500 text-sm font-light mt-1">Sesiones individuales con psicólogos especializados en TCC. Ansiedad, depresión, autoestima y más.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center shrink-0 mt-1" style="background:#FFD9CF;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#FC6745" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke="#FC6745" stroke-width="2"/></svg>
+              </div>
+              <div>
+                <h4 class="font-medium text-base" style="color:#006497;">Terapia de Pareja</h4>
+                <p class="text-gray-500 text-sm font-light mt-1">Acompañamiento para mejorar la comunicación y resolver conflictos en la relación.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center shrink-0 mt-1" style="background:#E8F5EE;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#ABD4BF" stroke-width="2"/><path d="M9 9h6M9 13h4" stroke="#ABD4BF" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <div>
+                <h4 class="font-medium text-base" style="color:#006497;">Recursos TCC</h4>
+                <p class="text-gray-500 text-sm font-light mt-1">Acceso a ejercicios, técnicas y material psicoeducativo entre sesiones para potenciar tu proceso.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── NOSOTROS ─────────────────────────────────────────────────────── -->
+  <section id="nosotros" class="py-24" style="background:#F1EBDA;">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <p class="text-sm font-medium uppercase tracking-widest mb-4" style="color:#FC6745;">Quiénes somos</p>
+      <h2 class="text-4xl font-light mb-6 max-w-2xl mx-auto leading-tight" style="color:#006497;font-family:'Playfair Display',Georgia,serif;">
+        Un equipo de psicólogos comprometidos con tu bienestar
+      </h2>
+      <p class="text-gray-600 font-light text-base max-w-xl mx-auto leading-relaxed mb-12">
+        Somos Paideia, un equipo de psicólogos especializados en Terapia Cognitivo Conductual. Creemos en una psicología accesible, sin estigmas y basada en la evidencia científica.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-2xl p-6 text-left shadow-sm card-hover">
+          <div class="w-16 h-16 rounded-full mb-4 overflow-hidden" style="background:#EBF3F8;">
+            <img src="https://placehold.co/64x64/EBF3F8/006497?text=SG" alt="Lic. Sofía García" class="w-full h-full object-cover" />
+          </div>
+          <h3 class="font-medium text-lg" style="color:#006497;">Lic. Sofía García</h3>
+          <p class="text-sm mb-3" style="color:#FC6745;">Psicóloga TCC</p>
+          <p class="text-gray-500 text-sm font-light leading-relaxed">Especializada en ansiedad, trastornos del estado de ánimo y regulación emocional.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 text-left shadow-sm card-hover">
+          <div class="w-16 h-16 rounded-full mb-4 overflow-hidden" style="background:#FFD9CF;">
+            <img src="https://placehold.co/64x64/FFD9CF/FC6745?text=CT" alt="Lic. Camila Torres" class="w-full h-full object-cover" />
+          </div>
+          <h3 class="font-medium text-lg" style="color:#006497;">Lic. Camila Torres</h3>
+          <p class="text-sm mb-3" style="color:#FC6745;">Psicóloga TCC</p>
+          <p class="text-gray-500 text-sm font-light leading-relaxed">Experiencia en autoestima, relaciones interpersonales y terapia de pareja.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 text-left shadow-sm card-hover">
+          <div class="w-16 h-16 rounded-full mb-4 overflow-hidden" style="background:#E8F5EE;">
+            <img src="https://placehold.co/64x64/E8F5EE/ABD4BF?text=MR" alt="Lic. Martín Rodríguez" class="w-full h-full object-cover" />
+          </div>
+          <h3 class="font-medium text-lg" style="color:#006497;">Lic. Martín Rodríguez</h3>
+          <p class="text-sm mb-3" style="color:#FC6745;">Psicólogo TCC</p>
+          <p class="text-gray-500 text-sm font-light leading-relaxed">Especialización en mindfulness, manejo del estrés y bienestar laboral.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACTO ────────────────────────────────────────────────────── -->
+  <section id="contacto" class="py-20" style="background:#F1EBDA;">
+    <div class="max-w-4xl mx-auto px-6">
+      <!-- Heading -->
+      <div class="text-center mb-10">
+        <h2 class="text-4xl md:text-5xl font-bold mb-3" style="color:#006497;font-family:'Playfair Display',Georgia,serif;">
+          Contacto
+        </h2>
+        <p class="font-light text-base" style="color:#4A85D1;">Estaremos encantados de acompañarte</p>
+      </div>
+
+      <!-- Form card -->
+      <div class="bg-white rounded-3xl p-8 md:p-10 shadow-sm">
+        <form
+          action="https://formsubmit.co/trinidadparravillamayor@gmail.com"
+          method="POST"
+          class="space-y-4"
+        >
+          <!-- FormSubmit config (hidden) -->
+          <input type="hidden" name="_subject" value="Nueva consulta desde Paideia" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="text" name="_honey" style="display:none" />
+
+          <!-- Row 1: Nombre + Teléfono -->
+          <div class="grid md:grid-cols-2 gap-4">
+            <input
+              type="text"
+              name="Nombre y apellido"
+              placeholder="Nombre y apellido"
+              required
+              class="w-full px-5 py-3.5 rounded-full border text-sm font-light outline-none transition-colors"
+              style="border-color:#dde8f0;color:#4A85D1;"
+              onfocus="this.style.borderColor='#006497'"
+              onblur="this.style.borderColor='#dde8f0'"
+            />
+            <input
+              type="tel"
+              name="Teléfono/WhatsApp"
+              placeholder="Número de teléfono/WhatsApp"
+              required
+              class="w-full px-5 py-3.5 rounded-full border text-sm font-light outline-none transition-colors"
+              style="border-color:#dde8f0;color:#4A85D1;"
+              onfocus="this.style.borderColor='#006497'"
+              onblur="this.style.borderColor='#dde8f0'"
+            />
+          </div>
+
+          <!-- Row 2: Email + Edad -->
+          <div class="grid md:grid-cols-2 gap-4">
+            <input
+              type="email"
+              name="Correo electrónico"
+              placeholder="Correo electrónico"
+              required
+              class="w-full px-5 py-3.5 rounded-full border text-sm font-light outline-none transition-colors"
+              style="border-color:#dde8f0;color:#4A85D1;"
+              onfocus="this.style.borderColor='#006497'"
+              onblur="this.style.borderColor='#dde8f0'"
+            />
+            <input
+              type="number"
+              name="Edad"
+              placeholder="Edad"
+              min="10"
+              max="99"
+              required
+              class="w-full px-5 py-3.5 rounded-full border text-sm font-light outline-none transition-colors"
+              style="border-color:#dde8f0;color:#4A85D1;"
+              onfocus="this.style.borderColor='#006497'"
+              onblur="this.style.borderColor='#dde8f0'"
+            />
+          </div>
+
+          <!-- Row 3: Servicio (full width) -->
+          <div class="relative">
+            <select
+              name="Servicio"
+              required
+              class="w-full px-5 py-3.5 rounded-full border text-sm font-light outline-none appearance-none transition-colors"
+              style="border-color:#dde8f0;color:#4A85D1;background:white;"
+              onfocus="this.style.borderColor='#006497'"
+              onblur="this.style.borderColor='#dde8f0'"
+            >
+              <option value="" disabled selected>Qué servicio...</option>
+              <option value="Terapia Individual">Terapia Individual</option>
+              <option value="Terapia de Pareja">Terapia de Pareja</option>
+              <option value="Primera consulta gratuita">Primera consulta gratuita</option>
+              <option value="Recursos TCC">Recursos TCC</option>
+              <option value="Otro">Otro</option>
+            </select>
+            <div class="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#4A85D1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+
+          <!-- Row 4: Descripción (full width) -->
+          <textarea
+            name="Mensaje"
+            placeholder="Cuéntanos..."
+            rows="5"
+            required
+            class="w-full px-5 py-4 rounded-2xl border text-sm font-light outline-none resize-none transition-colors"
+            style="border-color:#dde8f0;color:#4A85D1;"
+            onfocus="this.style.borderColor='#006497'"
+            onblur="this.style.borderColor='#dde8f0'"
+          ></textarea>
+
+          <!-- Submit -->
+          <button
+            type="submit"
+            class="w-full py-4 rounded-2xl text-white text-base font-semibold hover:opacity-90 transition-opacity"
+            style="background:#4A85D1;"
+          >
+            Enviar Formulario
+          </button>
+
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────────────────── -->
+  <footer class="py-16 text-white" style="background:#006497;">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-10 mb-12">
+
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <svg width="22" height="26" viewBox="0 0 100 116" fill="none">
+              <path d="M50 6 C36 6 20 14 19 30 C17 46 26 62 37 76 C43 85 50 100 50 110 C50 100 57 85 63 76 C74 62 83 46 81 30 C80 14 64 6 50 6 Z" stroke="rgba(255,255,255,0.7)" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+              <path d="M38 22 C30 34 30 58 38 70 C44 78 54 80 60 74" stroke="rgba(255,255,255,0.7)" stroke-width="3" stroke-linecap="round" fill="none"/>
+              <path d="M30 62 C34 70 42 72 47 67" stroke="rgba(255,255,255,0.7)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path d="M54 28 C56 22 60 26 64 21 C68 17 72 23 76 19 C78 17 80 22 81 28" stroke="rgba(255,255,255,0.7)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            </svg>
+            <span style="font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:1.1rem;letter-spacing:-0.02em;">paideia</span>
+          </div>
+          <p class="text-white/40 text-sm font-light leading-relaxed">Psicoterapia online con enfoque TCC. Accesible, profesional y basada en evidencia.</p>
+        </div>
+
+        <div>
+          <h4 class="text-white/50 text-xs uppercase tracking-widest mb-4">Servicios</h4>
+          <ul class="space-y-2 text-sm font-light text-white/50">
+            <li><a href="#" class="hover:text-white transition-colors">Terapia Individual</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Terapia de Pareja</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Recursos TCC</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Primera consulta</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white/50 text-xs uppercase tracking-widest mb-4">Empresa</h4>
+          <ul class="space-y-2 text-sm font-light text-white/50">
+            <li><a href="#" class="hover:text-white transition-colors">Quiénes somos</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Enfoque TCC</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Trabaja con nosotros</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white/50 text-xs uppercase tracking-widest mb-4">Contacto</h4>
+          <ul class="space-y-2 text-sm font-light text-white/50">
+            <li><a href="mailto:hola@terapiapaideia.com" class="hover:text-white transition-colors">hola@terapiapaideia.com</a></li>
+            <li><a href="https://www.instagram.com/terapia.paideia/" target="_blank" class="hover:text-white transition-colors">@terapia.paideia</a></li>
+            <li><a href="https://www.terapiapaideia.com" target="_blank" class="hover:text-white transition-colors">terapiapaideia.com</a></li>
+          </ul>
+          <div class="flex gap-3 mt-5">
+            <a href="https://www.instagram.com/terapia.paideia/" target="_blank" class="w-8 h-8 rounded-full flex items-center justify-center hover:opacity-80 transition" style="background:rgba(255,255,255,0.12);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>
+            </a>
+            <a href="#" class="w-8 h-8 rounded-full flex items-center justify-center hover:opacity-80 transition" style="background:rgba(255,255,255,0.12);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t pt-6 flex flex-col md:flex-row items-center justify-between gap-4" style="border-color:rgba(255,255,255,0.1);">
+        <p class="text-white/30 text-xs font-light">© 2024 Paideia. Todos los derechos reservados.</p>
+        <div class="flex gap-6 text-xs font-light text-white/30">
+          <a href="#" class="hover:text-white/60 transition-colors">Política de privacidad</a>
+          <a href="#" class="hover:text-white/60 transition-colors">Términos de uso</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── WHATSAPP FLOATING BUTTON ─────────────────────────────────────── -->
+  <a href="https://wa.me/5491127272113"
+     target="_blank"
+     rel="noopener noreferrer"
+     title="Chateá con nosotros por WhatsApp"
+     class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full shadow-lg hover:scale-105 transition-transform"
+     style="background:#25D366;">
+    <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 2C8.268 2 2 8.268 2 16c0 2.478.655 4.804 1.8 6.814L2 30l7.376-1.774A13.933 13.933 0 0 0 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2Z" fill="white"/>
+      <path d="M23.5 19.857c-.314-.157-1.857-.914-2.143-1.014-.286-.1-.493-.157-.7.157-.207.314-.8 1.014-1 1.221-.186.207-.371.229-.686.072-.314-.157-1.328-.49-2.53-1.56-.935-.834-1.567-1.862-1.75-2.176-.186-.314-.02-.486.14-.643.143-.143.314-.371.471-.557.157-.186.207-.314.314-.521.107-.207.05-.386-.029-.543-.078-.157-.7-1.686-.957-2.314-.25-.607-.507-.521-.7-.529l-.6-.01c-.207 0-.543.078-.828.386-.286.307-1.086 1.064-1.086 2.593 0 1.529 1.114 3.007 1.271 3.214.157.207 2.186 3.343 5.3 4.686.741.32 1.32.511 1.771.654.745.236 1.422.203 1.957.123.597-.089 1.857-.76 2.12-1.493.264-.733.264-1.36.186-1.493-.079-.136-.286-.214-.6-.371Z" fill="#25D366"/>
+    </svg>
+  </a>
+
+</body>
+</html>

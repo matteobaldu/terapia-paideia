@@ -1,0 +1,19 @@
+node_modules/
+package-lock.json
+
+# Screenshots de desarrollo (no necesarios en el repo)
+screenshot_v1.png
+screenshot_v2.png
+screenshot_v3.png
+screenshot_v4.png
+screenshot_form.png
+logo_check.png
+logo_check2.png
+logo_check3.png
+logo_check4.png
+logo_final.png
+logo_page7.png
+logo_png.png
+logo_ref.png
+isotipo_zoom.png
+pdf_full.png
