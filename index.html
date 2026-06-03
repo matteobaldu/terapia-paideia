@@ -17,9 +17,10 @@
             serif: ['Playfair Display', 'Georgia', 'serif'],
           },
           colors: {
-            'p-blue':   '#006497',
-            'p-mid':    '#4A85D1',
-            'p-orange': '#FC6745',
+            'p-olive':  '#4D5E37',
+            'p-terra':  '#C1724A',
+            'p-sand':   '#F7F2E8',
+            'p-sand2':  '#EDE7D7',
             'p-green':  '#ABD4BF',
             'p-pink':   '#FFD9CF',
             'p-cream':  '#F1EBDA',
@@ -33,44 +34,54 @@
     body {
       font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
       font-size: 16px;
-      color: #1a1a2e;
+      color: #2a2a2a;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
-      background: #fff;
+      background: #F7F2E8;
     }
     .card-hover { transition: transform 0.25s ease, box-shadow 0.25s ease; }
     .card-hover:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.09); }
-    input:focus, textarea:focus, select:focus { border-color: #006497 !important; }
+    input:focus, textarea:focus, select:focus { border-color: #4D5E37 !important; }
     input::placeholder, textarea::placeholder { color: #94a3b8; }
     .faq-answer { display: none; }
     .faq-answer.open { display: block; }
     #mobile-menu { display: none; }
     #mobile-menu.open { display: flex; }
+
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .marquee-track { display: flex; width: max-content; animation: marquee 30s linear infinite; }
+    .marquee-track:hover { animation-play-state: paused; }
+    .marquee-wrapper { overflow: hidden; }
   </style>
 </head>
 <body class="flex flex-col min-h-screen">
 
   <!-- ─── NAV ───────────────────────────────────────────────────────────── -->
-  <nav class="w-full bg-white sticky top-0 z-50 border-b border-gray-100">
+  <nav class="w-full sticky top-0 z-50 border-b border-[#E0D9CA]" style="background:#F7F2E8;">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
 
       <div class="flex items-center gap-2.5">
-        <img src="logo3.jpeg" alt="Logo" class="h-9 w-9 object-contain" style="mix-blend-mode: multiply;" />
+        <svg width="34" height="42" viewBox="0 0 34 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 5 Q27 4 26 13 Q25 21 19 23 Q15 24 15 17 Q15 8 20 5Z" fill="#E2725B"/>
+          <path d="M14 16 Q12 8 16 4 Q21 1 24 7 Q26 13 22 20 Q19 24 15 23 Q11 21 14 16Z" stroke="#556B2F" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="16" y1="23" x2="15" y2="38" stroke="#556B2F" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M15 32 Q10 28 9 23" stroke="#556B2F" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        </svg>
         <div>
-          <span style="font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:1.05rem;letter-spacing:-0.01em;color:#006497;">Trinidad Parra Villamayor</span>
+          <span style="font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:1.05rem;letter-spacing:-0.01em;color:#4D5E37;">Trinidad Parra Villamayor</span>
           <span class="block text-[10px] font-medium tracking-[0.14em] uppercase text-gray-400">Psicóloga TCC · Online</span>
         </div>
       </div>
 
       <div class="hidden md:flex items-center gap-8 text-sm text-gray-500 font-light">
-        <a href="#enfoque" class="hover:text-p-blue transition-colors">Enfoque</a>
-        <a href="#servicios" class="hover:text-p-blue transition-colors">Servicios</a>
-        <a href="#testimonios" class="hover:text-p-blue transition-colors">Testimonios</a>
-        <a href="#faq" class="hover:text-p-blue transition-colors">FAQ</a>
+        <a href="#enfoque" class="hover:text-p-olive transition-colors">Enfoque</a>
+        <a href="#servicios" class="hover:text-p-olive transition-colors">Servicios</a>
+        <a href="#testimonios" class="hover:text-p-olive transition-colors">Testimonios</a>
+        <a href="#faq" class="hover:text-p-olive transition-colors">FAQ</a>
       </div>
 
       <div class="flex items-center gap-3">
-        <a href="#contacto" class="hidden md:inline-block bg-p-blue text-white text-sm font-medium px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity">
+        <a href="#contacto" class="hidden md:inline-block bg-p-terra text-white text-sm font-medium px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity">
           Agendar sesión
         </a>
         <button id="hamburger" class="md:hidden flex flex-col gap-1.5 p-1" aria-label="Menú">
@@ -81,12 +92,12 @@
       </div>
     </div>
 
-    <div id="mobile-menu" class="flex-col bg-white border-t border-gray-100 px-6 py-4 gap-4 text-sm font-light text-gray-600">
+    <div id="mobile-menu" class="flex-col border-t border-[#E0D9CA] px-6 py-4 gap-4 text-sm font-light text-gray-600" style="background:#F7F2E8;">
       <a href="#enfoque" onclick="closeMenu()">Enfoque</a>
       <a href="#servicios" onclick="closeMenu()">Servicios</a>
       <a href="#testimonios" onclick="closeMenu()">Testimonios</a>
       <a href="#faq" onclick="closeMenu()">FAQ</a>
-      <a href="#contacto" onclick="closeMenu()" class="bg-p-blue text-white px-4 py-2 rounded-full text-center font-medium">Agendar sesión</a>
+      <a href="#contacto" onclick="closeMenu()" class="bg-p-terra text-white px-4 py-2 rounded-full text-center font-medium">Agendar sesión</a>
     </div>
   </nav>
 
@@ -96,69 +107,65 @@
   </script>
 
   <!-- ─── HERO ───────────────────────────────────────────────────────────── -->
-  <section class="bg-white pt-16 pb-24 overflow-hidden">
+  <section style="background:#F7F2E8;" class="pt-16 pb-24 overflow-hidden">
     <div class="max-w-6xl mx-auto px-6">
       <div class="grid md:grid-cols-2 gap-12 items-center">
 
-        <!-- Text -->
         <div>
           <h1 class="text-5xl md:text-6xl font-bold leading-[1.1] mb-6 text-gray-900" style="font-family:'Playfair Display',Georgia,serif;">
-            El bienestar<br />
-            <span style="color:#006497;">emocional</span><br />
-            que buscás<br/>es posible.
+            Un espacio seguro<br />
+            para <span style="color:#4D5E37;">entender</span><br />
+            lo que te pasa.
           </h1>
 
           <p class="text-gray-500 text-base leading-relaxed mb-8 max-w-md">
-            Psicóloga clínica especializada en TCC y terapias de tercera generación. Acompaño a jóvenes y adultos de forma online y personalizada.
+            Terapia online basada en la evidencia para comprender lo que sientes, reencontrarte y avanzar a tu propio ritmo.
           </p>
 
           <ul class="space-y-3 mb-9">
             <li class="flex items-center gap-3 text-sm text-gray-600">
-              <span class="w-5 h-5 rounded-full flex items-center justify-center shrink-0" style="background:#EBF3F8;">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#006497" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="w-5 h-5 rounded-full flex items-center justify-center shrink-0" style="background:#E8EFE0;">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#4D5E37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
               100% online, desde cualquier dispositivo
             </li>
             <li class="flex items-center gap-3 text-sm text-gray-600">
-              <span class="w-5 h-5 rounded-full flex items-center justify-center shrink-0" style="background:#EBF3F8;">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#006497" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="w-5 h-5 rounded-full flex items-center justify-center shrink-0" style="background:#E8EFE0;">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#4D5E37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
               Sesiones flexibles adaptadas a tu agenda
             </li>
             <li class="flex items-center gap-3 text-sm text-gray-600">
-              <span class="w-5 h-5 rounded-full flex items-center justify-center shrink-0" style="background:#EBF3F8;">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#006497" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="w-5 h-5 rounded-full flex items-center justify-center shrink-0" style="background:#E8EFE0;">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#4D5E37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
               Enfoque basado en evidencia científica
             </li>
           </ul>
 
           <div class="flex flex-wrap gap-3">
-            <a href="#contacto" class="bg-p-blue text-white font-medium text-sm px-7 py-3.5 rounded-full hover:opacity-90 transition-opacity">
+            <a href="#contacto" class="bg-p-terra text-white font-medium text-sm px-7 py-3.5 rounded-full hover:opacity-90 transition-opacity">
               Reservar primera sesión
             </a>
-            <a href="#enfoque" class="border border-gray-200 text-gray-600 font-medium text-sm px-7 py-3.5 rounded-full hover:border-gray-400 transition-colors">
+            <a href="#enfoque" class="border border-gray-300 text-gray-600 font-medium text-sm px-7 py-3.5 rounded-full hover:border-gray-400 transition-colors">
               Saber más
             </a>
           </div>
         </div>
 
-        <!-- Photo -->
         <div class="flex justify-center md:justify-end">
           <div class="relative">
-            <div class="w-[300px] md:w-[360px] rounded-3xl overflow-hidden shadow-xl" style="background:#EBF3F8;min-height:400px;">
+            <div class="w-[300px] md:w-[360px] rounded-3xl overflow-hidden shadow-xl" style="background:#E8EFE0;min-height:400px;">
               <img src="trinidad.jpeg" alt="Lic. Trinidad Parra Villamayor" class="w-full h-auto object-cover object-top" style="min-height:400px;" />
             </div>
-            <!-- Rating badge -->
             <div class="absolute -bottom-5 -left-5 bg-white rounded-2xl shadow-lg px-5 py-3.5 flex items-center gap-3 border border-gray-100">
-              <div class="text-2xl font-bold" style="color:#006497;">4.9</div>
+              <div class="text-2xl font-bold" style="color:#4D5E37;">4.9</div>
               <div>
-                <div class="mb-0.5" style="color:#FC6745;font-size:13px;">★★★★★</div>
+                <div class="mb-0.5" style="color:#C1724A;font-size:13px;">★★★★★</div>
                 <p class="text-xs text-gray-400 font-light">valoración media</p>
               </div>
             </div>
-            <!-- Experience badge -->
-            <div class="absolute -top-4 -right-4 text-white rounded-2xl shadow-lg px-4 py-3 text-center" style="background:#FC6745;">
+            <div class="absolute -top-4 -right-4 text-white rounded-2xl shadow-lg px-4 py-3 text-center" style="background:#C1724A;">
               <div class="text-xl font-bold">+4</div>
               <p class="text-[10px] font-medium leading-tight">años de<br/>experiencia</p>
             </div>
@@ -169,18 +176,34 @@
     </div>
   </section>
 
-  <!-- ─── ÁREAS (pills) ─────────────────────────────────────────────────── -->
-  <section style="background:#f7f8fa;" class="py-14 border-y border-gray-100">
-    <div class="max-w-6xl mx-auto px-6">
-      <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-7 text-center">Áreas de trabajo</p>
-      <div class="flex flex-wrap justify-center gap-3">
-        <span class="px-5 py-2 rounded-full border border-gray-200 bg-white text-sm text-gray-600 font-light hover:border-p-blue hover:text-p-blue transition-colors cursor-default">Ansiedad</span>
-        <span class="px-5 py-2 rounded-full border border-gray-200 bg-white text-sm text-gray-600 font-light hover:border-p-blue hover:text-p-blue transition-colors cursor-default">Depresión</span>
-        <span class="px-5 py-2 rounded-full border border-gray-200 bg-white text-sm text-gray-600 font-light hover:border-p-blue hover:text-p-blue transition-colors cursor-default">Autoestima</span>
-        <span class="px-5 py-2 rounded-full border border-gray-200 bg-white text-sm text-gray-600 font-light hover:border-p-blue hover:text-p-blue transition-colors cursor-default">Estrés</span>
-        <span class="px-5 py-2 rounded-full border border-gray-200 bg-white text-sm text-gray-600 font-light hover:border-p-blue hover:text-p-blue transition-colors cursor-default">Burnout</span>
-        <span class="px-5 py-2 rounded-full border border-gray-200 bg-white text-sm text-gray-600 font-light hover:border-p-blue hover:text-p-blue transition-colors cursor-default">Duelo</span>
-        <span class="px-5 py-2 rounded-full border border-gray-200 bg-white text-sm text-gray-600 font-light hover:border-p-blue hover:text-p-blue transition-colors cursor-default">Relaciones</span>
+  <!-- ─── ÁREAS (marquee) ──────────────────────────────────────────────── -->
+  <section style="background:#EDE7D7;" class="py-12 border-y border-[#D9D0BC]">
+    <div class="max-w-6xl mx-auto px-6 mb-7">
+      <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 text-center">Áreas de trabajo</p>
+    </div>
+    <div class="marquee-wrapper">
+      <div class="marquee-track">
+        <span class="px-5 py-2 mx-2 rounded-full border border-[#C9C0AE] bg-white text-sm text-gray-600 font-light whitespace-nowrap">Ansiedad</span>
+        <span class="px-5 py-2 mx-2 rounded-full border border-[#C9C0AE] bg-white text-sm text-gray-600 font-light whitespace-nowrap">Depresión</span>
+        <span class="px-5 py-2 mx-2 rounded-full border border-[#C9C0AE] bg-white text-sm text-gray-600 font-light whitespace-nowrap">Autoestima</span>
+        <span class="px-5 py-2 mx-2 rounded-full border border-[#C9C0AE] bg-white text-sm text-gray-600 font-light whitespace-nowrap">Estrés</span>
+        <span class="px-5 py-2 mx-2 rounded-full border border-[#C9C0AE] bg-white text-sm text-gray-600 font-light whitespace-nowrap">Burnout</span>
+        <span class="px-5 py-2 mx-2 rounded-full border border-[#C9C0AE] bg-white text-sm text-gray-600 font-light whitespace-nowrap">Duelo</span>
+        <span class="px-5 py-2 mx-2 rounded-full border border-[#C9C0AE] bg-white text-sm text-gray-600 font-light whitespace-nowrap">Relaciones</span>
+        <span class="px-5 py-2 mx-2 rounded-full border border-[#C9C0AE] bg-white text-sm text-gray-600 font-light whitespace-nowrap">Regulación emocional</span>
+        <span class="px-5 py-2 mx-2 rounded-full border border-[#C9C0AE] bg-white text-sm text-gray-600 font-light whitespace-nowrap">Bienestar laboral</span>
+        <span class="px-5 py-2 mx-2 rounded-full border border-[#C9C0AE] bg-white text-sm text-gray-600 font-light whitespace-nowrap">Mindfulness</span>
+        <!-- duplicate for seamless loop -->
+        <span class="px-5 py-2 mx-2 rounded-full border border-[#C9C0AE] bg-white text-sm text-gray-600 font-light whitespace-nowrap">Ansiedad</span>
+        <span class="px-5 py-2 mx-2 rounded-full border border-[#C9C0AE] bg-white text-sm text-gray-600 font-light whitespace-nowrap">Depresión</span>
+        <span class="px-5 py-2 mx-2 rounded-full border border-[#C9C0AE] bg-white text-sm text-gray-600 font-light whitespace-nowrap">Autoestima</span>
+        <span class="px-5 py-2 mx-2 rounded-full border border-[#C9C0AE] bg-white text-sm text-gray-600 font-light whitespace-nowrap">Estrés</span>
+        <span class="px-5 py-2 mx-2 rounded-full border border-[#C9C0AE] bg-white text-sm text-gray-600 font-light whitespace-nowrap">Burnout</span>
+        <span class="px-5 py-2 mx-2 rounded-full border border-[#C9C0AE] bg-white text-sm text-gray-600 font-light whitespace-nowrap">Duelo</span>
+        <span class="px-5 py-2 mx-2 rounded-full border border-[#C9C0AE] bg-white text-sm text-gray-600 font-light whitespace-nowrap">Relaciones</span>
+        <span class="px-5 py-2 mx-2 rounded-full border border-[#C9C0AE] bg-white text-sm text-gray-600 font-light whitespace-nowrap">Regulación emocional</span>
+        <span class="px-5 py-2 mx-2 rounded-full border border-[#C9C0AE] bg-white text-sm text-gray-600 font-light whitespace-nowrap">Bienestar laboral</span>
+        <span class="px-5 py-2 mx-2 rounded-full border border-[#C9C0AE] bg-white text-sm text-gray-600 font-light whitespace-nowrap">Mindfulness</span>
       </div>
     </div>
   </section>
@@ -201,16 +224,16 @@
   </section>
 
   <!-- ─── ENFOQUE ────────────────────────────────────────────────────────── -->
-  <section id="enfoque" class="py-24 bg-white">
+  <section id="enfoque" style="background:#F7F2E8;" class="py-24">
     <div class="max-w-6xl mx-auto px-6">
       <div class="grid md:grid-cols-2 gap-16 items-center">
 
         <div>
-          <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color:#FC6745;">Enfoque terapéutico</p>
+          <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color:#C1724A;">Enfoque terapéutico</p>
           <h2 class="text-4xl font-bold leading-tight mb-8 text-gray-900" style="font-family:'Playfair Display',Georgia,serif;">
             Reconocerte, comprenderte y crecer. De eso se trata la terapia.
           </h2>
-          <a href="#contacto" class="inline-block bg-p-blue text-white font-medium text-sm px-6 py-3 rounded-full hover:opacity-90 transition-opacity">
+          <a href="#contacto" class="inline-block bg-p-terra text-white font-medium text-sm px-6 py-3 rounded-full hover:opacity-90 transition-opacity">
             Comenzar ahora
           </a>
         </div>
@@ -220,7 +243,7 @@
             La ansiedad, la depresión, los problemas de autoestima y la dificultad para manejar el estrés son desafíos cotidianos que muchas personas enfrentan en silencio.
           </p>
           <p class="text-gray-500 text-base leading-relaxed mb-8">
-            Desde un enfoque cognitivo-conductual e integrando herramientas de las terapias de tercera generación —ACT y Mindfulness—, acompaño a desarrollar una mayor flexibilidad psicológica, conectar con el momento presente y guiar la vida según los propios valores.
+            Desde un enfoque cognitivo-conductual e integrando herramientas de las terapias de tercera generación —ACT y Mindfulness—, ofrezco acompañamiento para desarrollar mayor flexibilidad psicológica, conectar con el momento presente y guiar la vida según los propios valores.
           </p>
         </div>
 
@@ -229,45 +252,93 @@
   </section>
 
   <!-- ─── SERVICIOS (cards) ─────────────────────────────────────────────── -->
-  <section id="servicios" style="background:#f7f8fa;" class="py-24">
+  <section id="servicios" style="background:#EDE7D7;" class="py-24">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-14">
-        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color:#FC6745;">Cómo trabajo</p>
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color:#C1724A;">Cómo trabajo</p>
         <h2 class="text-4xl font-bold text-gray-900" style="font-family:'Playfair Display',Georgia,serif;">Mi enfoque terapéutico</h2>
       </div>
 
       <div class="grid md:grid-cols-3 gap-6">
 
-        <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm card-hover">
-          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-6" style="background:#EBF3F8;">
+        <!-- TCC -->
+        <div class="bg-white rounded-2xl p-8 border border-[#E0D9CA] shadow-sm card-hover">
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-6" style="background:#E8EFE0;">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke="#006497" stroke-width="1.5"/>
-              <path d="M8 12l3 3 5-5" stroke="#006497" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke="#4D5E37" stroke-width="1.5"/>
+              <path d="M8 12l3 3 5-5" stroke="#4D5E37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <h3 class="font-semibold text-lg mb-3 text-gray-900">Terapia Cognitivo Conductual</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">Exploramos cómo tus pensamientos, emociones y comportamientos se relacionan entre sí. Con herramientas prácticas y respaldadas por la ciencia, trabajamos para generar cambios reales y duraderos en tu vida cotidiana.</p>
+          <h3 class="font-semibold text-lg mb-1 text-gray-900">Terapia Cognitivo Conductual</h3>
+          <p class="text-xs font-medium mb-4 italic" style="color:#C1724A;">Entender tu mente para cambiar tus hábitos</p>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">Un enfoque práctico y centrado en el presente. Trabajamos juntos para identificar cómo influyen tus pensamientos en lo que sientes y haces en tu día a día.</p>
+          <ul class="space-y-2">
+            <li class="flex items-start gap-2 text-xs text-gray-500">
+              <span class="mt-0.5 shrink-0 w-4 h-4 rounded-full flex items-center justify-center" style="background:#E8EFE0;"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#4D5E37" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+              Identificarás y desactivarás pensamientos automáticos que te bloquean
+            </li>
+            <li class="flex items-start gap-2 text-xs text-gray-500">
+              <span class="mt-0.5 shrink-0 w-4 h-4 rounded-full flex items-center justify-center" style="background:#E8EFE0;"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#4D5E37" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+              Te llevarás herramientas concretas para aplicar entre sesiones
+            </li>
+            <li class="flex items-start gap-2 text-xs text-gray-500">
+              <span class="mt-0.5 shrink-0 w-4 h-4 rounded-full flex items-center justify-center" style="background:#E8EFE0;"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#4D5E37" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+              Romperás círculos viciosos y cambiarás conductas que ya no te suman
+            </li>
+          </ul>
         </div>
 
-        <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm card-hover">
-          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-6" style="background:#FFD9CF;">
+        <!-- ACT -->
+        <div class="bg-white rounded-2xl p-8 border border-[#E0D9CA] shadow-sm card-hover">
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-6" style="background:#FAE8E0;">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke="#FC6745" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke="#C1724A" stroke-width="1.5" stroke-linejoin="round"/>
             </svg>
           </div>
-          <h3 class="font-semibold text-lg mb-3 text-gray-900">ACT — Aceptación y Compromiso</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">Te ayuda a relacionarte de otra manera con los pensamientos y emociones difíciles, sin luchar contra ellos. El objetivo no es eliminar el malestar, sino aprender a vivir una vida plena guiada por lo que realmente te importa.</p>
+          <h3 class="font-semibold text-lg mb-1 text-gray-900">ACT — Aceptación y Compromiso</h3>
+          <p class="text-xs font-medium mb-4 italic" style="color:#C1724A;">Flexibilidad mental para vivir bajo tus propios términos</p>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">En lugar de gastar energía luchando contra el malestar, este enfoque te ayuda a abrirle espacio a lo que sientes y centrar tus fuerzas en lo que de verdad te importa.</p>
+          <ul class="space-y-2">
+            <li class="flex items-start gap-2 text-xs text-gray-500">
+              <span class="mt-0.5 shrink-0 w-4 h-4 rounded-full flex items-center justify-center" style="background:#FAE8E0;"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#C1724A" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+              Aprenderás a relacionarte con mayor libertad con las emociones difíciles
+            </li>
+            <li class="flex items-start gap-2 text-xs text-gray-500">
+              <span class="mt-0.5 shrink-0 w-4 h-4 rounded-full flex items-center justify-center" style="background:#FAE8E0;"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#C1724A" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+              Dejarás de postergar tus metas por miedo o inseguridad
+            </li>
+            <li class="flex items-start gap-2 text-xs text-gray-500">
+              <span class="mt-0.5 shrink-0 w-4 h-4 rounded-full flex items-center justify-center" style="background:#FAE8E0;"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#C1724A" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+              Descubrirás qué le da sentido a tu vida y tomarás decisiones alineadas con eso
+            </li>
+          </ul>
         </div>
 
-        <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm card-hover">
-          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-6" style="background:#E8F5EE;">
+        <!-- Mindfulness -->
+        <div class="bg-white rounded-2xl p-8 border border-[#E0D9CA] shadow-sm card-hover">
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-6" style="background:#E5F0EA;">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
               <circle cx="12" cy="12" r="10" stroke="#ABD4BF" stroke-width="1.5"/>
               <path d="M12 8v4l3 3" stroke="#ABD4BF" stroke-width="1.5" stroke-linecap="round"/>
             </svg>
           </div>
-          <h3 class="font-semibold text-lg mb-3 text-gray-900">Mindfulness</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">Una práctica que entrena tu capacidad de estar presente, observar sin juzgar y responder en lugar de reaccionar. Integrado a la terapia, potencia el autoconocimiento y la regulación emocional.</p>
+          <h3 class="font-semibold text-lg mb-1 text-gray-900">Mindfulness</h3>
+          <p class="text-xs font-medium mb-4 italic" style="color:#C1724A;">Pausar el ruido mental y conectar con el presente</p>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">No se trata de "poner la mente en blanco", sino de entrenar tu mente para estar presente aquí y ahora, observando pensamientos y emociones con curiosidad y sin juzgarte.</p>
+          <ul class="space-y-2">
+            <li class="flex items-start gap-2 text-xs text-gray-500">
+              <span class="mt-0.5 shrink-0 w-4 h-4 rounded-full flex items-center justify-center" style="background:#E5F0EA;"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#ABD4BF" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+              Reducirás la velocidad de tus pensamientos cuando la cabeza te vaya a mil
+            </li>
+            <li class="flex items-start gap-2 text-xs text-gray-500">
+              <span class="mt-0.5 shrink-0 w-4 h-4 rounded-full flex items-center justify-center" style="background:#E5F0EA;"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#ABD4BF" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+              Responderás a los problemas diarios con mayor calma, en lugar de reaccionar
+            </li>
+            <li class="flex items-start gap-2 text-xs text-gray-500">
+              <span class="mt-0.5 shrink-0 w-4 h-4 rounded-full flex items-center justify-center" style="background:#E5F0EA;"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#ABD4BF" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+              Desarrollarás mayor autocompasión y amabilidad contigo misma
+            </li>
+          </ul>
         </div>
 
       </div>
@@ -275,11 +346,10 @@
   </section>
 
   <!-- ─── SOBRE MÍ ────────────────────────────────────────────────────── -->
-  <section id="sobre-mi" class="py-24 bg-white">
+  <section id="sobre-mi" style="background:#F7F2E8;" class="py-24">
     <div class="max-w-6xl mx-auto px-6">
       <div class="grid md:grid-cols-2 gap-16 items-center">
 
-        <!-- Foto -->
         <div class="flex justify-center">
           <div class="relative">
             <div class="w-[300px] md:w-[420px] h-[480px] rounded-3xl overflow-hidden shadow-xl">
@@ -288,9 +358,8 @@
           </div>
         </div>
 
-        <!-- Texto -->
         <div>
-          <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color:#FC6745;">Quién soy</p>
+          <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color:#C1724A;">Quién soy</p>
           <h2 class="text-4xl font-bold leading-tight mb-6 text-gray-900" style="font-family:'Playfair Display',Georgia,serif;">
             Hola, soy Trinidad
           </h2>
@@ -302,25 +371,25 @@
           </p>
           <div class="flex flex-col gap-3">
             <div class="flex items-center gap-3 text-sm text-gray-600">
-              <span class="w-5 h-5 rounded-full flex items-center justify-center shrink-0" style="background:#EBF3F8;">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#006497" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="w-5 h-5 rounded-full flex items-center justify-center shrink-0" style="background:#E8EFE0;">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#4D5E37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
               Lic. en Psicología — Universidad del Salvador (Diploma de Honor)
             </div>
             <div class="flex items-center gap-3 text-sm text-gray-600">
-              <span class="w-5 h-5 rounded-full flex items-center justify-center shrink-0" style="background:#EBF3F8;">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#006497" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="w-5 h-5 rounded-full flex items-center justify-center shrink-0" style="background:#E8EFE0;">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#4D5E37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
               Posgrado en Psicología Laboral y Bienestar Organizacional
             </div>
             <div class="flex items-center gap-3 text-sm text-gray-600">
-              <span class="w-5 h-5 rounded-full flex items-center justify-center shrink-0" style="background:#EBF3F8;">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#006497" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="w-5 h-5 rounded-full flex items-center justify-center shrink-0" style="background:#E8EFE0;">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#4D5E37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
               Atención clínica individual y grupal desde 2021
             </div>
           </div>
-          <a href="#contacto" class="inline-block mt-8 bg-p-blue text-white font-medium text-sm px-7 py-3.5 rounded-full hover:opacity-90 transition-opacity">
+          <a href="#contacto" class="inline-block mt-8 bg-p-terra text-white font-medium text-sm px-7 py-3.5 rounded-full hover:opacity-90 transition-opacity">
             Reservar sesión
           </a>
         </div>
@@ -330,21 +399,21 @@
   </section>
 
   <!-- ─── TESTIMONIOS ────────────────────────────────────────────────────── -->
-  <section id="testimonios" class="py-24 bg-white">
+  <section id="testimonios" style="background:#EDE7D7;" class="py-24">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-14">
-        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color:#FC6745;">Testimonios</p>
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color:#C1724A;">Testimonios</p>
         <h2 class="text-4xl font-bold text-gray-900 mb-4" style="font-family:'Playfair Display',Georgia,serif;">Lo que dicen mis pacientes</h2>
         <div class="flex items-center justify-center gap-2">
-          <span style="color:#FC6745;font-size:15px;">★★★★★</span>
+          <span style="color:#C1724A;font-size:15px;">★★★★★</span>
           <span class="text-gray-400 text-sm font-light">4.9/5 · basado en valoraciones reales</span>
         </div>
       </div>
 
       <div class="grid md:grid-cols-3 gap-6">
 
-        <div class="border border-gray-100 rounded-2xl p-7 bg-white shadow-sm card-hover">
-          <div class="mb-4" style="color:#FC6745;font-size:14px;">★★★★★</div>
+        <div class="border border-[#E0D9CA] rounded-2xl p-7 bg-white shadow-sm card-hover">
+          <div class="mb-4" style="color:#C1724A;font-size:14px;">★★★★★</div>
           <p class="text-gray-600 text-sm leading-relaxed mb-6">"Gracias a Trinidad pude entender y manejar mi ansiedad de una forma que nunca había logrado antes. Las sesiones son muy cómodas y el enfoque es realmente efectivo."</p>
           <div>
             <p class="font-medium text-sm text-gray-800">Valentina G.</p>
@@ -352,8 +421,8 @@
           </div>
         </div>
 
-        <div class="border border-gray-100 rounded-2xl p-7 bg-white shadow-sm card-hover">
-          <div class="mb-4" style="color:#FC6745;font-size:14px;">★★★★★</div>
+        <div class="border border-[#E0D9CA] rounded-2xl p-7 bg-white shadow-sm card-hover">
+          <div class="mb-4" style="color:#C1724A;font-size:14px;">★★★★★</div>
           <p class="text-gray-600 text-sm leading-relaxed mb-6">"El hecho de que sea online facilita muchísimo la continuidad del proceso. Trinidad tiene una forma de acompañar muy cercana y profesional a la vez."</p>
           <div>
             <p class="font-medium text-sm text-gray-800">Marcos A.</p>
@@ -361,8 +430,8 @@
           </div>
         </div>
 
-        <div class="border border-gray-100 rounded-2xl p-7 bg-white shadow-sm card-hover">
-          <div class="mb-4" style="color:#FC6745;font-size:14px;">★★★★★</div>
+        <div class="border border-[#E0D9CA] rounded-2xl p-7 bg-white shadow-sm card-hover">
+          <div class="mb-4" style="color:#C1724A;font-size:14px;">★★★★★</div>
           <p class="text-gray-600 text-sm leading-relaxed mb-6">"Llegué con mucho estrés laboral y después de varios meses siento que tengo herramientas reales para manejarlo. Recomiendo ampliamente su trabajo."</p>
           <div>
             <p class="font-medium text-sm text-gray-800">Laura M.</p>
@@ -374,18 +443,75 @@
     </div>
   </section>
 
+  <!-- ─── PRECIOS ────────────────────────────────────────────────────────── -->
+  <section id="precios" style="background:#F7F2E8;" class="py-24">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color:#C1724A;">Tarifas</p>
+      <h2 class="text-4xl font-bold text-gray-900 mb-4" style="font-family:'Playfair Display',Georgia,serif;">Transparencia antes de comenzar</h2>
+      <p class="text-gray-500 text-base font-light mb-12">Creo que conocer las condiciones económicas de antemano forma parte del respeto hacia ti.</p>
+
+      <div class="bg-white rounded-3xl border border-[#E0D9CA] shadow-sm p-10 mb-8">
+        <div class="text-5xl font-bold mb-2" style="color:#4D5E37;">50€</div>
+        <p class="text-gray-400 text-sm mb-8">Sesión individual online · 50 minutos</p>
+
+        <div class="grid md:grid-cols-2 gap-6 text-left">
+          <div class="flex items-start gap-3">
+            <span class="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5" style="background:#E8EFE0;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#4D5E37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <div>
+              <p class="text-sm font-medium text-gray-800">Pago seguro y anticipado</p>
+              <p class="text-xs text-gray-500 mt-0.5">Bizum o transferencia bancaria antes de cada sesión</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5" style="background:#E8EFE0;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#4D5E37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <div>
+              <p class="text-sm font-medium text-gray-800">Cancelación flexible</p>
+              <p class="text-xs text-gray-500 mt-0.5">Puedes cancelar o reprogramar con 24 h de antelación</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5" style="background:#E8EFE0;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#4D5E37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <div>
+              <p class="text-sm font-medium text-gray-800">Sin compromisos de permanencia</p>
+              <p class="text-xs text-gray-500 mt-0.5">Decides con total libertad el ritmo del proceso</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5" style="background:#E8EFE0;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#4D5E37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <div>
+              <p class="text-sm font-medium text-gray-800">Primera sesión de evaluación</p>
+              <p class="text-xs text-gray-500 mt-0.5">Para conocernos y ver si es el enfoque adecuado para ti</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#contacto" class="inline-block bg-p-terra text-white font-medium text-sm px-8 py-4 rounded-full hover:opacity-90 transition-opacity">
+        Reservar primera sesión
+      </a>
+    </div>
+  </section>
+
   <!-- ─── FAQ ───────────────────────────────────────────────────────────── -->
-  <section id="faq" style="background:#f7f8fa;" class="py-24">
+  <section id="faq" style="background:#EDE7D7;" class="py-24">
     <div class="max-w-3xl mx-auto px-6">
       <div class="text-center mb-14">
-        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color:#FC6745;">FAQ</p>
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color:#C1724A;">FAQ</p>
         <h2 class="text-4xl font-bold text-gray-900" style="font-family:'Playfair Display',Georgia,serif;">Preguntas frecuentes</h2>
       </div>
 
       <div class="space-y-3">
 
-        <div class="faq-item bg-white rounded-2xl border border-gray-100 overflow-hidden">
-          <button class="faq-btn w-full text-left px-6 py-5 flex items-center justify-between text-sm font-medium text-gray-800 hover:text-p-blue transition-colors">
+        <div class="faq-item bg-white rounded-2xl border border-[#E0D9CA] overflow-hidden">
+          <button class="faq-btn w-full text-left px-6 py-5 flex items-center justify-between text-sm font-medium text-gray-800 hover:text-p-olive transition-colors">
             ¿Cómo funciona la primera sesión?
             <svg class="faq-icon w-5 h-5 text-gray-400 shrink-0 transition-transform duration-200" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           </button>
@@ -394,8 +520,8 @@
           </div>
         </div>
 
-        <div class="faq-item bg-white rounded-2xl border border-gray-100 overflow-hidden">
-          <button class="faq-btn w-full text-left px-6 py-5 flex items-center justify-between text-sm font-medium text-gray-800 hover:text-p-blue transition-colors">
+        <div class="faq-item bg-white rounded-2xl border border-[#E0D9CA] overflow-hidden">
+          <button class="faq-btn w-full text-left px-6 py-5 flex items-center justify-between text-sm font-medium text-gray-800 hover:text-p-olive transition-colors">
             ¿Cuánto dura una sesión y con qué frecuencia?
             <svg class="faq-icon w-5 h-5 text-gray-400 shrink-0 transition-transform duration-200" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           </button>
@@ -404,33 +530,33 @@
           </div>
         </div>
 
-        <div class="faq-item bg-white rounded-2xl border border-gray-100 overflow-hidden">
-          <button class="faq-btn w-full text-left px-6 py-5 flex items-center justify-between text-sm font-medium text-gray-800 hover:text-p-blue transition-colors">
+        <div class="faq-item bg-white rounded-2xl border border-[#E0D9CA] overflow-hidden">
+          <button class="faq-btn w-full text-left px-6 py-5 flex items-center justify-between text-sm font-medium text-gray-800 hover:text-p-olive transition-colors">
             ¿Las sesiones online son igual de efectivas?
             <svg class="faq-icon w-5 h-5 text-gray-400 shrink-0 transition-transform duration-200" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           </button>
           <div class="faq-answer px-6 pb-5 text-sm text-gray-500 leading-relaxed">
-            Sí. La evidencia científica respalda que la terapia online tiene una eficacia comparable a la presencial para la mayoría de las consultas. Además, permite mayor flexibilidad y comodidad al poder realizarla desde tu propio espacio.
+            Sí. La evidencia científica respalda que la terapia online tiene una eficacia comparable a la presencial para la mayoría de las consultas. Además, ofrece mayor flexibilidad y comodidad al poder realizarla desde tu propio espacio.
           </div>
         </div>
 
-        <div class="faq-item bg-white rounded-2xl border border-gray-100 overflow-hidden">
-          <button class="faq-btn w-full text-left px-6 py-5 flex items-center justify-between text-sm font-medium text-gray-800 hover:text-p-blue transition-colors">
+        <div class="faq-item bg-white rounded-2xl border border-[#E0D9CA] overflow-hidden">
+          <button class="faq-btn w-full text-left px-6 py-5 flex items-center justify-between text-sm font-medium text-gray-800 hover:text-p-olive transition-colors">
             ¿En qué plataforma se realizan las sesiones?
             <svg class="faq-icon w-5 h-5 text-gray-400 shrink-0 transition-transform duration-200" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           </button>
           <div class="faq-answer px-6 pb-5 text-sm text-gray-500 leading-relaxed">
-            Las sesiones se realizan por videollamada a través de Google Meet o la plataforma que sea más cómoda para ti. Solo necesitás un dispositivo con cámara y conexión a internet.
+            Las sesiones se realizan por videollamada a través de Google Meet o la plataforma que sea más cómoda para ti. Solo necesitas un dispositivo con cámara y conexión a internet.
           </div>
         </div>
 
-        <div class="faq-item bg-white rounded-2xl border border-gray-100 overflow-hidden">
-          <button class="faq-btn w-full text-left px-6 py-5 flex items-center justify-between text-sm font-medium text-gray-800 hover:text-p-blue transition-colors">
+        <div class="faq-item bg-white rounded-2xl border border-[#E0D9CA] overflow-hidden">
+          <button class="faq-btn w-full text-left px-6 py-5 flex items-center justify-between text-sm font-medium text-gray-800 hover:text-p-olive transition-colors">
             ¿Puedo cancelar o reprogramar una sesión?
             <svg class="faq-icon w-5 h-5 text-gray-400 shrink-0 transition-transform duration-200" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           </button>
           <div class="faq-answer px-6 pb-5 text-sm text-gray-500 leading-relaxed">
-            Sí, con al menos 24 horas de anticipación. Entiendo que la vida tiene imprevistos y la comunicación abierta es parte fundamental del proceso terapéutico.
+            Sí, con al menos 24 horas de antelación. Entiendo que la vida tiene imprevistos y la comunicación abierta es parte fundamental del proceso terapéutico.
           </div>
         </div>
 
@@ -439,17 +565,17 @@
   </section>
 
   <!-- ─── CONTACTO ───────────────────────────────────────────────────────── -->
-  <section id="contacto" class="py-24 bg-white">
+  <section id="contacto" style="background:#F7F2E8;" class="py-24">
     <div class="max-w-4xl mx-auto px-6">
       <div class="text-center mb-12">
-        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color:#FC6745;">Contacto</p>
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color:#C1724A;">Contacto</p>
         <h2 class="text-4xl font-bold mb-3 text-gray-900" style="font-family:'Playfair Display',Georgia,serif;">
           Estaré encantada<br />de acompañarte
         </h2>
-        <p class="text-gray-500 text-base font-light">Completá el formulario y te respondo a la brevedad.</p>
+        <p class="text-gray-500 text-base font-light">Completa el formulario y te respondo a la brevedad.</p>
       </div>
 
-      <div class="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-gray-100">
+      <div class="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-[#E0D9CA]">
         <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
           <input type="hidden" name="access_key" value="0b96d31f-6e6d-4674-9769-6a712d7ee404" />
           <input type="hidden" name="subject" value="Consulta Terapia Web Trini" />
@@ -458,24 +584,31 @@
 
           <div class="grid md:grid-cols-2 gap-4">
             <input type="text" name="Nombre y apellido" placeholder="Nombre y apellido" required
-              class="w-full px-5 py-3.5 rounded-xl border border-gray-200 text-sm outline-none text-gray-700" />
+              class="w-full px-5 py-3.5 rounded-xl border border-gray-200 text-sm outline-none text-gray-700 bg-white" />
             <input type="tel" name="Teléfono/WhatsApp" placeholder="Teléfono / WhatsApp" required
-              class="w-full px-5 py-3.5 rounded-xl border border-gray-200 text-sm outline-none text-gray-700" />
+              class="w-full px-5 py-3.5 rounded-xl border border-gray-200 text-sm outline-none text-gray-700 bg-white" />
           </div>
 
           <div class="grid md:grid-cols-2 gap-4">
             <input type="email" name="Correo electrónico" placeholder="Correo electrónico" required
-              class="w-full px-5 py-3.5 rounded-xl border border-gray-200 text-sm outline-none text-gray-700" />
+              class="w-full px-5 py-3.5 rounded-xl border border-gray-200 text-sm outline-none text-gray-700 bg-white" />
             <input type="number" name="Edad" placeholder="Edad" min="10" max="99" required
-              class="w-full px-5 py-3.5 rounded-xl border border-gray-200 text-sm outline-none text-gray-700" />
+              class="w-full px-5 py-3.5 rounded-xl border border-gray-200 text-sm outline-none text-gray-700 bg-white" />
           </div>
 
           <textarea name="Mensaje" placeholder="Cuéntame un poco sobre lo que estás buscando..." rows="4" required
-            class="w-full px-5 py-4 rounded-xl border border-gray-200 text-sm outline-none resize-none text-gray-700"></textarea>
+            class="w-full px-5 py-4 rounded-xl border border-gray-200 text-sm outline-none resize-none text-gray-700 bg-white"></textarea>
+
+          <label class="flex items-start gap-3 cursor-pointer">
+            <input type="checkbox" required class="mt-1 shrink-0" style="accent-color:#4D5E37;" />
+            <span class="text-xs text-gray-500 leading-relaxed">
+              He leído y acepto la <a href="#" style="color:#4D5E37;" class="underline hover:opacity-80">Política de Privacidad</a> y el <a href="#" style="color:#4D5E37;" class="underline hover:opacity-80">Aviso Legal</a>. Consiento el tratamiento de mis datos personales para gestionar mi consulta.
+            </span>
+          </label>
 
           <button type="submit"
             class="w-full py-4 rounded-xl text-white text-sm font-semibold hover:opacity-90 transition-opacity"
-            style="background:#006497;">
+            style="background:#C1724A;">
             Enviar consulta
           </button>
         </form>
@@ -484,46 +617,66 @@
   </section>
 
   <!-- ─── FOOTER ─────────────────────────────────────────────────────────── -->
-  <footer class="py-14 border-t border-gray-100 bg-white">
+  <footer style="background:#EDE7D7;" class="py-14 border-t border-[#D9D0BC]">
     <div class="max-w-6xl mx-auto px-6">
       <div class="grid md:grid-cols-4 gap-10 mb-10">
 
         <div class="md:col-span-2">
-          <p style="font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:1.1rem;letter-spacing:-0.01em;color:#006497;">Trinidad Parra Villamayor</p>
-          <p class="text-gray-400 text-xs uppercase tracking-widest mt-1 mb-4">Psicóloga TCC · Online</p>
-          <p class="text-gray-500 text-sm font-light leading-relaxed max-w-xs">Psicoterapia online con enfoque TCC y terapias de tercera generación. Accesible, profesional y basada en evidencia.</p>
+          <p style="font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:1.1rem;letter-spacing:-0.01em;color:#4D5E37;">Trinidad Parra Villamayor</p>
+          <p class="text-gray-400 text-xs uppercase tracking-widest mt-1 mb-3">Psicóloga TCC · Online</p>
+          <p class="text-gray-500 text-sm font-light leading-relaxed max-w-xs mb-3">Psicoterapia online con enfoque TCC y terapias de tercera generación. Accesible, profesional y basada en evidencia.</p>
+          <p class="text-gray-400 text-xs font-light leading-relaxed">Trinidad Parra Villamayor · Psicóloga Colegiada Nº [pendiente] · Col·legi Oficial de Psicologia de Catalunya</p>
         </div>
 
         <div>
           <h4 class="text-gray-400 text-xs uppercase tracking-widest mb-4">Servicios</h4>
           <ul class="space-y-2 text-sm font-light text-gray-500">
-            <li><a href="#servicios" class="hover:text-p-blue transition-colors">Terapia Individual</a></li>
-            <li><a href="#servicios" class="hover:text-p-blue transition-colors">ACT y Mindfulness</a></li>
-            <li><a href="#servicios" class="hover:text-p-blue transition-colors">Bienestar laboral</a></li>
-            <li><a href="#contacto" class="hover:text-p-blue transition-colors">Primera consulta</a></li>
+            <li><a href="#servicios" class="hover:text-p-olive transition-colors">Terapia Individual</a></li>
+            <li><a href="#servicios" class="hover:text-p-olive transition-colors">ACT y Mindfulness</a></li>
+            <li><a href="#servicios" class="hover:text-p-olive transition-colors">Bienestar laboral</a></li>
+            <li><a href="#contacto" class="hover:text-p-olive transition-colors">Primera consulta</a></li>
           </ul>
         </div>
 
         <div>
           <h4 class="text-gray-400 text-xs uppercase tracking-widest mb-4">Contacto</h4>
-          <ul class="space-y-2 text-sm font-light text-gray-500">
-            <li><a href="mailto:trinidadparravillamayor@hotmail.com" class="hover:text-p-blue transition-colors">trinidadparravillamayor@hotmail.com</a></li>
-            <li><a href="https://wa.me/5493875939040" target="_blank" class="hover:text-p-blue transition-colors">+54 9 3875 93-9040 (WhatsApp)</a></li>
+          <ul class="space-y-3 text-sm font-light text-gray-500">
+            <li class="flex items-center gap-2">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" class="shrink-0">
+                <path d="M6.62 10.79a15.45 15.45 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.4 11.4 0 003.57.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.4 11.4 0 00.57 3.57 1 1 0 01-.24 1.01l-2.21 2.21z" stroke="#C1724A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>+34 612 227 965 <span class="text-gray-400 text-xs">(llamadas)</span></span>
+            </li>
+            <li class="flex items-center gap-2">
+              <svg width="15" height="15" viewBox="0 0 32 32" fill="none" class="shrink-0">
+                <path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.7A13 13 0 0016 29c7.2 0 13-5.8 13-13S23.2 3 16 3Z" fill="#25D366"/>
+                <path d="M21.5 19.1c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.75.96-.92 1.15-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.91-2.19-.24-.57-.48-.49-.67-.5l-.57-.01c-.2 0-.51.07-.78.37s-1.03 1.01-1.03 2.46 1.06 2.86 1.2 3.06c.15.2 2.08 3.17 5.03 4.45.7.3 1.25.48 1.68.62.71.22 1.35.19 1.86.12.57-.08 1.75-.72 2-1.41.25-.69.25-1.28.18-1.41-.08-.13-.28-.2-.58-.35z" fill="white"/>
+              </svg>
+              <a href="https://wa.me/5493875939040" target="_blank" class="hover:text-p-olive transition-colors">
+                +54 9 3875 939040 <span class="text-gray-400 text-xs">(WhatsApp)</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:trinidadparravillamayor@hotmail.com" class="hover:text-p-olive transition-colors break-all">trinidadparravillamayor@hotmail.com</a>
+            </li>
           </ul>
         </div>
 
       </div>
 
-      <div class="border-t border-gray-100 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="border-t border-[#C9C0AE] pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
         <p class="text-gray-400 text-xs font-light">© 2025 Trinidad Parra Villamayor. Todos los derechos reservados.</p>
-        <a href="#" class="text-xs text-gray-400 font-light hover:text-gray-600 transition-colors">Política de privacidad</a>
+        <div class="flex gap-4">
+          <a href="#" class="text-xs text-gray-400 font-light hover:text-gray-600 transition-colors">Política de privacidad</a>
+          <a href="#" class="text-xs text-gray-400 font-light hover:text-gray-600 transition-colors">Aviso legal</a>
+        </div>
       </div>
     </div>
   </footer>
 
   <!-- ─── WHATSAPP FAB ────────────────────────────────────────────────────── -->
   <a href="https://wa.me/5493875939040" target="_blank" rel="noopener noreferrer"
-     title="Chateá con Trinidad por WhatsApp"
+     title="Chatea con Trinidad por WhatsApp"
      class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full shadow-lg hover:scale-105 transition-transform"
      style="background:#25D366;">
     <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
